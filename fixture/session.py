@@ -18,8 +18,8 @@ class SessionHelper:
 
     def logout(self):
         wd = self.app.wd
-        wd.find_element_by_css_selector("span[class='user-info']").click()
-        wd.find_element_by_css_selector('a[href="/mantisbt-2.25.1/logout_page.php"]').click()
+        wd.find_element_by_link_text("administrator").click()
+        wd.find_element_by_link_text(u"Выход").click()
 
     def ensure_logout(self):
         wd = self.app.wd

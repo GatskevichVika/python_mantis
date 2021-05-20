@@ -1,5 +1,7 @@
 from selenium import webdriver
 from fixture.session import SessionHelper
+from fixture.project import ProjectHelper
+from fixture.generator import GeneratorHelper
 
 
 class Application:
@@ -16,6 +18,8 @@ class Application:
 
         self.wd.implicitly_wait(5)
         self.session = SessionHelper(self)
+        self.project = ProjectHelper(self)
+        self.generator = GeneratorHelper(self)
         self.base_url = base_url
 
     def open_home_page(self):
