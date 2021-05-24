@@ -16,11 +16,11 @@ class ProjectHelper:
 
     def open_project_management_page(self):
         wd = self.app.wd
-        wd.find_element_by_link_text(u"Управление").click()
+        wd.find_element_by_link_text(u"Manage").click()
 
     def open_project_page(self):
         wd = self.app.wd
-        wd.find_element_by_link_text(u"Управление проектами").click()
+        wd.find_element_by_link_text(u"Manage Projects").click()
 
     def create_project(self, project):
         wd = self.app.wd
@@ -34,21 +34,21 @@ class ProjectHelper:
         wd.find_element_by_id("project-description").clear()
         wd.find_element_by_id("project-description").send_keys(project.project_description)
         # submit create project
-        wd.find_element_by_xpath(u"//input[@value='Добавить проект']").click()
+        wd.find_element_by_xpath(u"//input[@value='Create New Project']").click()
 
     def delete_selected_project(self):
         wd = self.app.wd
         wd.find_element_by_xpath("(//a[contains(text(),'New project2')])[2]").click()
-        wd.find_element_by_xpath(u"//input[@value='Удалить проект']").click()
-        wd.find_element_by_xpath(u"//input[@value='Удалить проект']").click()
+        wd.find_element_by_xpath(u"//input[@value='Delete Project']").click()
+        wd.find_element_by_xpath(u"//input[@value='Delete Project']").click()
 
     def return_to_project_page(self):
         wd = self.app.wd
-        wd.find_element_by_link_text(u"Продолжить").click()
+        wd.find_element_by_link_text(u"Proceed").click()
 
     def return_to_home_page(self):
         wd = self.app.wd
-        wd.find_element_by_link_text(u"Обзор").click()
+        wd.find_element_by_link_text(u"My View").click()
 
     def get_project_list(self):
         if self.project_cache is None:
@@ -70,9 +70,8 @@ class ProjectHelper:
 
     def delete_from_index(self, index):
         wd = self.app.wd
-        #wd.find_element_by_xpath("(//a[contains(text(),'New project2')])[2]").click()
         wd.find_elements_by_css_selector("td a")[index].click()
-        wd.find_element_by_xpath(u"//input[@value='Удалить проект']").click()
-        wd.find_element_by_xpath(u"//input[@value='Удалить проект']").click()
+        wd.find_element_by_xpath(u"//input[@value='Delete Project']").click()
+        wd.find_element_by_xpath(u"//input[@value='Delete Project']").click()
 
 
