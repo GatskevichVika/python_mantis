@@ -3,7 +3,6 @@
     "baseUrl":"http://localhost/mantisbt-2.25.1/"
   },
    "webadmin": {
-    "baseUrl":"http://localhost/addressbook",
     "username":"administrator",
     "password":"root"
   },
@@ -11,5 +10,11 @@
     "host":"localhost",
     "username":"mantis",
     "password":"mantis"
+  },
+  "james": {
+    "host": "localhost",
+    "port": 4555,
+    "username": "root",
+    "password": "root"
   }
 }
