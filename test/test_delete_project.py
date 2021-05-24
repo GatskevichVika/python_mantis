@@ -13,10 +13,10 @@ def test_delete_project(app):
         app.project.create_project(
             Project(project_name="test", project_description="test"))
 
-    old_list = app.project.count()
+    old_list = app.soap.project_list(username="administrator", password="root")
     index = randrange(old_list)
     app.project.delete_from_index(index)
-    new_list = app.project.count()
+    new_list = app.soap.project_list(username="administrator", password="root")
     assert old_list - 1 == new_list
     app.project.return_to_home_page()
     app.session.logout()

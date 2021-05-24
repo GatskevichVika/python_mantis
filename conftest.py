@@ -2,7 +2,6 @@ import pytest
 import json
 import os.path
 from ftputil import FTPHost
-
 from fixture.application import Application
 
 

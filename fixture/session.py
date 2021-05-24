@@ -19,7 +19,6 @@ class SessionHelper:
     def logout(self):
         wd = self.app.wd
         wd.find_element_by_xpath("//div[@id='navbar-container']/div[2]/ul/li[3]/a/i[2]").click()
-        #wd.find_element_by_link_text("administrator").click()
         wd.find_element_by_link_text("Logout").click()
 
     def ensure_logout(self):

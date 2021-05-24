@@ -34,7 +34,7 @@ class ProjectHelper:
         wd.find_element_by_id("project-description").clear()
         wd.find_element_by_id("project-description").send_keys(project.project_description)
         # submit create project
-        wd.find_element_by_xpath(u"//input[@value='Create New Project']").click()
+        wd.find_element_by_xpath(u"//input[@value='Add Project']").click()
 
     def delete_selected_project(self):
         wd = self.app.wd
