@@ -24,17 +24,23 @@ class ProjectHelper:
 
     def create_project(self, project):
         wd = self.app.wd
+        self.open_project_management_page()
+        self.open_project_page()
         # init create project
-        wd.find_element_by_xpath("//button[@type='submit']").click()
+        wd.find_element_by_xpath("//button[text()='Create New Project']").click()
         # fill form
-        wd.find_element_by_id("project-name").click()
-        wd.find_element_by_id("project-name").clear()
-        wd.find_element_by_id("project-name").send_keys(project.project_name)
-        wd.find_element_by_id("project-description").click()
-        wd.find_element_by_id("project-description").clear()
-        wd.find_element_by_id("project-description").send_keys(project.project_description)
+        self.fill_form(project)
         # submit create project
         wd.find_element_by_xpath(u"//input[@value='Add Project']").click()
+
+    def fill_form(self, project):
+        wd = self.app.wd
+        wd.find_element_by_id("project-name").click()
+        wd.find_element_by_id("project-name").clear()
+        wd.find_element_by_id("project-name").send_keys(project.name)
+        wd.find_element_by_id("project-description").click()
+        wd.find_element_by_id("project-description").clear()
+        wd.find_element_by_id("project-description").send_keys(project.description)
 
     def delete_selected_project(self):
         wd = self.app.wd
@@ -60,12 +66,14 @@ class ProjectHelper:
                 project_name = cells[1].text
                 project_description = cells[2].text
 
-                self.project_cache.append(Project(project_name=project_name, project_description=project_description))
+                self.project_cache.append(Project(name=project_name, description=project_description))
         return list(self.project_cache)
 
     def count(self):
         wd = self.app.wd
+        self.open_project_management_page()
         self.open_project_page()
+
         return len(wd.find_elements_by_css_selector("i.fa.fa-check"))
 
     def delete_from_index(self, index):

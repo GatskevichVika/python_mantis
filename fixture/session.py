@@ -1,4 +1,3 @@
-
 class SessionHelper:
 
     def __init__(self, app):
@@ -46,6 +45,3 @@ class SessionHelper:
             else:
                 self.logout()
         self.login(username, password)
-
-
-

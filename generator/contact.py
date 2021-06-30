@@ -14,7 +14,7 @@ except getopt.GetoptError as err:
     sys.exit(2)
 
 n = 5
-f = "data/project.json"
+f = "data/contact.json"
 
 for o, a in opts:
     if o == "-n":
